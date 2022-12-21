@@ -18,7 +18,7 @@ public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
 
-	@CrossOrigin(origins = "http://localhost:8080")
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	public List<TransactionModel> findTransactions() {
 		return transactionService.findTransactions();
