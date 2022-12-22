@@ -14,8 +14,11 @@ public interface TransactionRepository extends JpaRepository<TransactionModel, I
 
 	@Query("SELECT obj FROM TransactionModel obj WHERE obj.transactionDate BETWEEN :min AND :max AND obj.transactionToName = :name")
 	List<TransactionModel> searchTransactions(LocalDate min, LocalDate max, String name);
-	
+
 	@Query("SELECT obj FROM TransactionModel obj WHERE obj.transactionDate BETWEEN :min AND :max")
 	List<TransactionModel> searchTransactionsOutName(LocalDate min, LocalDate max);
+
+	// @Query("SELECT SUM(transactionAmount) FROM TransactionModel")
+	// Double totalAmount();
 
 }
